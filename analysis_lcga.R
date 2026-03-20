@@ -308,3 +308,45 @@ df_lcga %>%
     RIRI5_mean = round(mean(RIRI_w5, na.rm = TRUE), 1)
   ) %>%
   print()
+
+
+
+  # Entropy 오류 우회 - 직접 값 입력
+ggplot(traj_mean, aes(x = year, y = mean_RIRI,
+                       color = class_label, group = class_label)) +
+  geom_line(linewidth = 1.5) +
+  geom_point(size = 4) +
+  geom_hline(yintercept = 100, linetype = "dashed", color = "gray50") +
+  geom_hline(yintercept = 50,  linetype = "dotted", color = "orange") +
+  annotate("text", x = 2022.05, y = 103, label = "RIRI=100", size = 3.5, color = "gray50") +
+  annotate("text", x = 2022.05, y = 53,  label = "RIRI=50",  size = 3.5, color = "orange") +
+  scale_x_continuous(breaks = c(2020, 2021, 2022)) +
+  scale_color_manual(values = c(
+    "집단1" = "#E74C3C",   # 빨강: 만성미회복형
+    "집단2" = "#E67E22",   # 주황: 하락취약형
+    "집단3" = "#3498DB",   # 파랑: 부분회복형
+    "집단4" = "#27AE60"    # 초록: 안정고소득형
+  )) +
+  labs(
+    title    = "LCGA 집단별 평균 궤적 (k=4)",
+    subtitle = "Entropy=0.905 | n=2,542",
+    x        = "조사 연도",
+    y        = "RIRI (평균)",
+    color    = "집단"
+  ) +
+  theme_bw(base_size = 13) +
+  theme(
+    plot.title      = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+
+ggsave("lcga_k4_trajectory.png", width = 8, height = 6, dpi = 150)
+cat("저장 완료: lcga_k4_trajectory.png\n")
+
+
+
+
+
+# 집단 할당 결과 저장
+write.csv(df_class, "lcga_class_k4.csv", row.names = FALSE)
+cat("저장 완료: lcga_class_k4.csv\n")
