@@ -1,33 +1,33 @@
-# 산재 노동자의 경제적 복귀 경로 유형화와 결정요인 분석
-### 소득 회복률과 잠재성장모형을 중심으로
+# Typologizing Economic Return Pathways of Injured Workers
+### Focusing on Income Recovery Rate and Latent Growth Modeling
 
-> 제11회 산재보험패널 학술대회 · 손단하 · 허재희 · 황사현 · [🇺🇸 English](README_EN.md)
+> 11th PSWCI Academic Conference · Son Danha · Heo Jaehee · Hwang Sahyun · [🇰🇷 한국어](README_KO.md)
 
-## 개요
-생활임금 대비 실질 소득회복률(**RIRI**)을 새롭게 구성하고, **LCGA**로 4개의 이질적 궤적을 도출했습니다. SHAP·PSM·정책 시뮬레이션으로 현행 재활서비스의 한계를 실증하고 데이터 기반 정책 대안을 제안합니다.
+## Overview
+We constructed a **Real Income Recovery Index (RIRI)** benchmarked against the living wage and identified 4 heterogeneous trajectories via **LCGA**. Using SHAP, PSM, and policy simulation, we empirically demonstrate the limitations of current rehabilitation services and propose data-driven alternatives.
 
 $$RIRI_w = \frac{Q_{irr,w} \times W_{pre}}{LW_w} \times \frac{CPI_{pre}}{CPI_w} \times 100$$
 
-## 핵심 발견
-- 장해등급은 궤적을 **결정하지 않는다** (SHAP 6위)
-- **연령·건강·심리**가 결정한다
-- 여성의 안정고소득형 진입 확률 **92% 낮음** (p<.001)
-- 만성미회복형·하락취약형의 **93% 이상**이 OECD 빈곤선 이하
-- **만성미회복형 × 사회재활**만 유의한 효과 (ATT=+3.12, p=.028)
+## Key Findings
+- Injury severity **does not** determine recovery trajectories (SHAP rank 6)
+- **Age, health, and psychological state** are the real determinants
+- Women are **92% less likely** to reach the stably high-income group (p<.001)
+- **93%+** of Groups 1 & 2 fall below the OECD poverty line
+- Only **social rehabilitation for the chronically unrecovered** showed significant effect (ATT=+3.12, p=.028)
 
-## 궤적 유형 (k=4, Entropy=0.905)
+## Trajectories (k=4, Entropy=0.905)
 
-| 집단 | 명칭 | n | 비율 |
+| Group | Label | n | % |
 |--|--|--|--|
-| 1 | 만성미회복형 | 702 | 27.6% |
-| 2 | 하락취약형 | 352 | 13.8% |
-| 3 | 부분회복형 | 897 | 35.3% |
-| 4 | 안정고소득형 | 591 | 23.3% |
+| 1 | Chronically Unrecovered | 702 | 27.6% |
+| 2 | Declining Vulnerable | 352 | 13.8% |
+| 3 | Partially Recovered | 897 | 35.3% |
+| 4 | Stably High-Income | 591 | 23.3% |
 
-## 스택
+## Stack
 `Python 3.12` · `R 4.x` · pandas · scikit-learn · shap · lcmm
 
-## 데이터
-[근로복지공단 산재보험패널조사](https://pswci.kcomwel.or.kr) — 원본 데이터 미포함
+## Data
+[Korea Workers' Compensation & Welfare Service](https://pswci.kcomwel.or.kr) — raw data not included.
 
-<div align="center"><sub>제11회 산재보험패널 학술대회 · 2026</sub></div>
+<div align="center"><sub>11th PSWCI Academic Conference · 2026</sub></div>
